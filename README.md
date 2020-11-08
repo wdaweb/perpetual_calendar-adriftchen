@@ -1,2 +1,0 @@
-# adriftchen.github.io
-homepage
