@@ -121,11 +121,11 @@ if($prevMonth<1){
 
 ?>
 
-<div class="L text-light bg-secondary font-weight-bolder p-3 m-3 ">
+<div class="L text-light bg-secondary font-weight-bolder p-3 m-0 ">
     <p>Book of the Month </p><img src="c11.jpg" alt="cover">
 </div>
 
-<div class="R f1 p-5 m-3 l-5">
+<div class="R f1 p-5 m-0 l-5">
 <h1>
     <?php
             switch($month){
@@ -169,7 +169,7 @@ if($prevMonth<1){
 
         ?>
         </h1>
-        <h1>&nbsp;&nbsp;<?php echo $year ?></h1>
+        <h1>&nbsp;<?php echo $year ?></h1>
 
         <table class=" R f1 border p-3 mb-5 bg-white rounded-lg">            
         <!-- <table class=" border border-dark shadow cellspacing='0' p-3 mb-5 bg-white rounded-lg"> -->
