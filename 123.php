@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-  <style>
-     body{
+</head>
+<style>
+    body{
         padding:20px;
         margin:auto;
         text-align:center;
@@ -19,17 +20,16 @@
         margin:auto;
         border:1px solid #ccc;
         padding:20px 0;
-        line-height:3rem;
         /* border-collapse:collapse; */
     }
     table td:first-child,td:last-child{
         color:red;
     }
-    /* th{
-        
-    } */
+    th{
+        line-height:3rem;
+    }
     table{
-        width:700px;
+        width:70vw;
     }
     table td:hover{
             background:lightblue;
@@ -40,59 +40,26 @@
         color:#fff;
     }
     img {
-        width: 150px;
-}
-  </style>
-
-</head>
-<body>
-<?php 
-//當前年
-// $year=$_GET['y']?$_GET['y']:date('Y');
-
-//當前月
-// $month=$_GET['m']?$_GET['m']:date('m');
-
-if(isset($_GET['month'])){
-    $month=$_GET['month'];
-}else{
-    $month=date('m');
-}
-if(isset($_GET['year'])){
-    $year=$_GET['year'];
-}else{
-    $year=date('Y');
+        width: 100%;
+        height: auto;
 }
 
-if($month>=12){
-    $nextMonth=1;
-    $nextYear=$Year+1;
-}else{
-    $nextMonth=$Month+1;
-    $nextYear=$Year;
 
 
-//當前月1號的Unix 時間戳
-$firstDay=strtotime("{$year}-{$month}-1");
+</style>
 
-//當前月天數
-$days=date('t',$firstDay);
+<body class=" text-dark bg-light ">
+<div class="container my-1">
+  <div class="row">
+  <div class="col-4 left bg-secondary font-weight-bolder p-3 m-3 ">
+    <div class="row"><h3>Book of the Month</h3></div>
+    <div class="row p-3"><img src="c11.jpg" alt="cover"></div>
+  </div>
 
-//當前月1號是幾周
-$week=date('w',$firstDay);
-
-
-
-?>
-
-<div class="container mx-3">
-    <div class="d-inline-block text-light bg-secondary font-weight-bolder p-3 m-3">
-    <p>Book of the Month </p><img src="c11.jpg" alt="cover">
-    </div>
-
-<div class="d-inline-block ">
-<span><h1 class="text-center " >
-    <?php
+  
+    <div class="col-8">
+    <div class="row ">      
+    <span><h1 class="text-center" ><?php
             switch($month){
                 case 1;
                 echo "January";
@@ -132,19 +99,21 @@ $week=date('w',$firstDay);
                 break;  
             }
 
-        ?></span></h1>
-            <h1>&nbsp;&nbsp;&nbsp;<?php echo $year ?>年</h1>
+        ?></span></h1><h1>&nbsp;&nbsp;&nbsp;<?php echo $year ?>年</h1>
+        </div>
 
-        <table class=" border shadow p-3 mb-5 bg-white rounded-lg">            
+
+      <div class="row">
+        <table border='1px' cellspacing='0' width='700px' class="shadow p-3 mb-5 bg-white rounded-lg">            
         <!-- <table class=" border border-dark shadow cellspacing='0' p-3 mb-5 bg-white rounded-lg"> -->
                 <tr>
-                <td>日</td>
-                <td>一</td>
-                <td>二</td>
-                <td>三</td>
-                <td>四</td>
-                <td>五</td>
-                <td>六</td>
+                <th class="text-danger">日</th>
+                <th>一</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+                <th class="text-danger">六</th>
             </tr>
 
             <?php 
@@ -161,13 +130,22 @@ $week=date('w',$firstDay);
                 }
              ?>
         </table>
+        </div>
+        <div class="row">
         <h3>
             <!-- <a href="perCalendar.php?y=<?php echo $prevYear ?>">上一年</a> -->
-            <button type="button" class="btn btn-light btn-lg p-3"> <a href="000.php?y=<?php echo $prevYear ?>&m=<?php echo $prevMonth ?>">pre</a></button>
-            <button type="button" class="btn btn-light btn-lg p-3"><a href="000.php?y=<?php echo $nextYear ?>&m=<?php echo $nextMonth ?>">next</a></button>
+            
+            <button type="button" class="btn btn-light btn-lg p-3"> <a href="perCalendar.php?y=<?php echo $prevYear ?>&m=<?php echo $prevMonth ?>">pre</a></button>
+            <button type="button" class="btn btn-light btn-lg p-3"><a href="perCalendar.php?y=<?php echo $nextYear ?>&m=<?php echo $nextMonth ?>">next</a></button>
+            
             <!-- <a href="perCalendar.php?y=<?php echo $nextYear ?>">下一月</a> -->
         </h3>
+        </div>
+    </div>
+
 </div>
-</div>
+
+
 </body>
 </html>
+

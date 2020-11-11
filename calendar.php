@@ -40,7 +40,8 @@
         color:#fff;
     }
     img {
-        width: 150px;
+        width: 100%;
+        height: auto;
 }
   </style>
 
@@ -48,21 +49,21 @@
 <body>
 <?php
 //當前年
-$year=$_GET['y']?$_GET['y']:date('Y');
+// $year=$_GET['y']?$_GET['y']:date('Y');   //三元運算子
 
 //當前月
-$month=$_GET['m']?$_GET['m']:date('m');
+// $month=$_GET['m']?$_GET['m']:date('m');
 
-// if(isset($_GET['month'])){   //當前月
-//     $month=$_GET['month'];
-// }else{
-//     $month=date('m');
-// }
-// if(isset($_GET['year'])){    //當前年
-//     $year=$_GET['year'];
-// }else{
-//     $year=date('Y');
-// }
+if(isset($_GET['month'])){   //當前月
+    $month=$_GET['month'];
+}else{
+    $month=date('m');
+}
+if(isset($_GET['year'])){    //當前年
+    $year=$_GET['year'];
+}else{
+    $year=date('Y');
+}
 
 
 //當前月1號的Unix 時間戳
@@ -93,7 +94,7 @@ if($prevMonth<1){
 ?>
 
 <div class="container mx-3">
-    <div class="d-inline-block  text-light bg-secondary font-weight-bolder p-3 m-3">
+    <div class="d-inline-block text-light bg-secondary font-weight-bolder p-3 m-3">
     <p>Book of the Month </p><img src="c11.jpg" alt="cover">
     </div>
 
@@ -169,10 +170,10 @@ if($prevMonth<1){
              ?>
         </table>
         <h3>
-            <!-- <a href="Calendar.php?y=<?php echo $prevYear ?>">上一年</a> -->
-            <button type="button" class="btn btn-light btn-lg p-3 "> <a href="calendar.php?y=<?php echo $prevYear ?>&m=<?php echo $prevMonth ?>">prev</a></button>
-            <button type="button" class="btn btn-light btn-lg p-3 "><a href="calendar.php?y=<?php echo $nextYear ?>&m=<?php echo $nextMonth ?>">next</a></button>
-            <!-- <a href="Calendar.php?y=<?php echo $nextYear ?>">下一月</a> -->
+            <!-- <a href="Calendar.php?year=<?php echo $prevYear ?>">上一年</a> -->
+            <button type="button" class="btn btn-light btn-lg p-3 "> <a href="calendar.php?year=<?php echo $prevYear ?>&month=<?php echo $prevMonth ?>">&laquo;prev</a></button>
+            <button type="button" class="btn btn-light btn-lg p-3 "><a href="calendar.php?year=<?php echo $nextYear ?>&month=<?php echo $nextMonth ?>">next&raquo;</a></button>
+            <!-- <a href="Calendar.php?year=<?php echo $nextYear ?>">下一年</a> -->
         </h3>
 </div>
 </div>
