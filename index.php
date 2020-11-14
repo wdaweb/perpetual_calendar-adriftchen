@@ -12,14 +12,15 @@
         padding:20px;
         margin:auto;
         text-align:center;
-        /* font-family: arial,'Microsoft JhengHei', serif; */
+        font-family: arial,'Microsoft JhengHei', serif;
         display:flex;
+        justify-content:center;
         /* box-sizing:border-box; */
     }
 
     table,tr,td{
         margin:auto;
-        border:1px solid #ccc;
+        border:2px solid #ccc;
         padding:20px 0;
         line-height:3rem;
         box-sizing:border-box;
@@ -35,17 +36,21 @@
     }
 
     table td:hover{
-            background:lightblue;
+            background:#b7ffbf;
         }
 
-    /* td{
-        font-style:italic;
-    } */
-
-    .left{
+    .L{
         /* width:30vw; */
         border:1px solid #ccc;
         color:#fff;
+    }
+
+    .R{
+        /* background:#f7786b; */
+        /* background:#f47983; */
+        /* background:#ef7a82; */
+        /* background:#f9906f; */
+        background:#f7bdaf;
     }
 
     p{
@@ -55,6 +60,12 @@
 
     .f1{
         font-family: 'Martel', serif;
+    }
+
+    .f2{
+        background:#faf0dc;
+        color:#fff;
+
     }
 
     img {
@@ -111,13 +122,12 @@ if($prevMonth<1){
 
 ?>
 
-<div class="left text-light bg-secondary font-weight-bolder p-3 m-3">
+<div class="L text-light bg-secondary font-weight-bolder p-3 m-0 ">
     <p>Book of the Month </p><img src="c11.jpg" alt="cover">
 </div>
 
-
-<div class="f1 m-3">
-<h1 class="" >
+<div class="R f1 p-5 m-0 l-5">
+<h1>
     <?php
             switch($month){
                 case 1;
@@ -160,9 +170,9 @@ if($prevMonth<1){
 
         ?>
         </h1>
-        <h1>&nbsp;&nbsp;<?php echo $year ?></h1>
+        <h1>&nbsp;<?php echo $year ?></h1>
 
-        <table class=" f1 border shadow p-3 mb-5 bg-white rounded-lg">            
+        <table class=" R f1 border p-3 mb-5 bg-white rounded-lg">            
         <!-- <table class=" border border-dark shadow cellspacing='0' p-3 mb-5 bg-white rounded-lg"> -->
                 <tr>
                 <td>日</td>
@@ -175,14 +185,14 @@ if($prevMonth<1){
             </tr>
 
             <?php 
-            $holiday=[
-                '01-07'=>'Lucky Day',
-                '02-07'=>'Lucky Day',
-                '03-07'=>'Lucky Day',
-                '04-07'=>'Lucky Day',
-                '12-31'=>'這是今年最後一天'
+            // $holiday=[
+            //     '01-07'=>'Lucky Day',
+            //     '02-07'=>'Lucky Day',
+            //     '03-07'=>'Lucky Day',
+            //     '04-07'=>'Lucky Day',
+            //     '12-31'=>'這是今年最後一天'
                 
-            ];
+            // ];
                 for($i=(1-$week);$i<=$days;){
                     echo '<tr>';
                         for($j=0;$j<7;$j++,$i++){
@@ -198,8 +208,8 @@ if($prevMonth<1){
         </table>
         <h3>
             <!-- <a href="Calendar.php?year=<?php echo $prevYear ?>">上一年</a> -->
-            <button type="button" class="btn btn-light btn-lg p-3 "> <a href="calendar copy.php?year=<?php echo $prevYear ?>&month=<?php echo $prevMonth ?>">&laquo;prev</a></button>
-            <button type="button" class="btn btn-light btn-lg p-3 "><a href="calendar copy.php?year=<?php echo $nextYear ?>&month=<?php echo $nextMonth ?>">next&raquo;</a></button>
+            <button class="f2 btn btn-light btn-lg p-3 "> <a href="index.php?year=<?php echo $prevYear ?>&month=<?php echo $prevMonth ?>">&laquo;prev</a></button>
+            <button class="f2 btn btn-light btn-lg p-3 "><a href="index.php?year=<?php echo $nextYear ?>&month=<?php echo $nextMonth ?>">next&raquo;</a></button>
             <!-- <a href="Calendar.php?year=<?php echo $nextYear ?>">下一年</a> -->
         </h3>
 </div>
